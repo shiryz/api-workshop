@@ -25,49 +25,91 @@ like you use in your browser address bar. The server responds with data, which
 might be information about the weather, pictures of cats or links to news
 articles.
 
+### A code example
+
+Open up this repl: https://repl.it/@jc66/xhr-example
+
+It contains a working code example of making a request to the Giphy API, and logging the response. In case you don't know, [Giphy](https://giphy.com/) is a website for getting animated GIFs based on your search terms.
+
+Read on to understand how the code works.
+
 ### The request object
 
 An API request is an object, and you create one by calling the XMLHttpRequest
-constructor.
+constructor like this:
 
-Let's create a request object in the console so we can take a closer look at it:
+```js
+var xhr = new XMLHttpRequest()
+```
 
-1. Open a new browser window
-2. Open the developer console (mac: `cmd+alt+i`, linux: `ctrl+shift+i`)
-3. Type `var xhr = new XMLHttpRequest();` in the console
-4. Then type `xhr` and hit enter
-5. Click on the grey arrow next to your xhr object so you can take a look at its
-   methods and properties
-6. Two things to take note of:
-   * The property 'responseText' has an empty string as its value. More on this
-     in a moment.
-   * Click on the arrow next to `__proto__`: XMLHttpRequest and take a look at all
-     those methods. You'll be using a few of them, including 'open' and 'send',
-     shortly.
+`xhr` is going to be our object for making requests and receiving responses.
+
+Next, we need to initialise our request:
+
+```js
+xhr.open('GET', 'https://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC')
+```
+
+The first argument, `'GET'`, states that we want to do an HTTP GET request (you will learn more about this in the HTTP section).
+
+The second argument, `'https://.api.giphy...'`, is the url for the Giphy API. This is the location where we want to make the request.
+
+Finally, before we talk about the response object, look at this line at the bottom:
+
+```js
+// This is what actually sends the request!
+xhr.send()
+```
 
 ### The response object
 
-When we examined the request object we saw that it has a property called
-'responseText', and its value is an empty string. The reason it's an empty
-string is that we don't have a response yet.
+We need to tell our `xhr` object what to do when it receives a response. We can do that by setting the `onreadystatechange` function:
 
-When you make a successful request, the server sends back the response by
-assigning it as a value to the responseText property in your request. What comes
-back is great big string of text that is difficult to use.
+```js
+// We define a function and assign it to xhr.onreadystatechange
+xhr.onreadystatechange = function() {
+  // This function will be called automatically whenever the state of the `xhr` object changes
+  // eg: when our xhr object receives a response
+}  
+```
+
+Inside this function, we need to do a few checks before accessing the response:
+
+```js
+xhr.onreadystatechange = function() {
+    // If xhr.readyState is 4, we received a response
+    // If xhr.status is 200, the response was successful 
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      // In here, we're ready to deal with the response  
+      // We can access our response with xhr.responseText         
+    }
+}  
+```
+
+So now we are ready to access the response using `xhr.responseText` (at this point, the response has been automatically assigned to `xhr.responseText`). But what actually is this response, and what does it look like? Try opening https://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC in a seperate browser tab. You should see a big object with lots of data. It should look similar to a JS object.
+
+You are officially looking at 🌟🌟JSON 🌟🌟. But what is it?
+
+> JavaScript Object Notation (JSON) is a standard text-based format for representing structured data based on JavaScript object syntax. It is commonly used for transmitting data in web applications (e.g., sending some data from the server to the client, so it can be displayed on a web page, or vice versa)
+
+> https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
+
+So JSON a data format that looks a lot like a JS object (but it can be used by lots of different programming languages, not just JS).
+
+It's also a text-based format, ie: a string. This means that we can't treat it like an object straight away:
+
+```js
+// this would throw an error
+xhr.responseText.data
+```
+
+First, we need to covert it from JSON to a regular JS data type. Luckily, the browser has a handy tool for converting data to/from JSON format, using the [standard built-in `JSON` object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON). 
 
 
-The `xhr.responseText` string usually is a 'stringified' version of an object we can use once we
-'parse' the string, using **JavaScript Object Notation (JSON)**.
+The built-in `JSON` object has two methods to convert JSON strings to regular JS and back again: 
 
-In case you haven't heard of it before, JSON is a way to store information
-that's organised and easy to access. It looks like a JavaScript object but its
-keys and values are always strings before parsing. Once parsed it's values
-could be string, number, boolean, object, array or null.
-
-JSON has two methods to convert strings to JSON objects and back again  : 
-
-* `var string = JSON.stringify(object)`
-* `var object = JSON.parse(string)`
+* `var JSONString = JSON.stringify(object)`
+* `var object = JSON.parse(JSONString)`
 
 In our case, we will parse the `xhr.responseText` we receive back from our API call from a string into a JSON object like so:
 
@@ -76,16 +118,11 @@ In our case, we will parse the `xhr.responseText` we receive back from our API c
 Once the responseText has been parsed, you can access it like you would any other
 JavaScript object. I've called my parsed object 'data'. I could then `console.log(data);` to get a look at my parsed object.  
 
-It follows that before *sending* a JSON object anywhere we should also use the `JSON.stringify()` method in JS to transform it to a string:
+It follows that before *sending* JSON data anywhere, we should also use the `JSON.stringify()` method in JS to transform our data to a JSON string:
 
-`var response = JSON.stringify(dataToSend);`
+`var jsonDataToSend = JSON.stringify(dataToSend);`
 
-In the example above the `response` and `responseText` are identical, but the `response` is on the server side while the `responseText` is on
-the browser "Client Side" in your browser.
-
-We make XMLHttpRequest so we can ask the server to send us that response.
-
-In the mean time we will only use the parse method, once you start to build your
+In the mean time we will only use the `.parse()` method, once you start to build your
 own server in the next weeks you will start using the `JSON.stringify()` method.
 
 ### But what if the response object is not a JSON object? 
@@ -94,14 +131,11 @@ In this case using `JSON.parse(responseText)` will throw an error.   This might 
 
 To protect against this you could wrap your `JSON.parse(responseText)` in a `try... catch` block like so:
 
-```
+```js
 try {
   var data = JSON.parse(xhr.responseText)
 } catch (e) {
-  var data = {
-    error: true,
-    message: e
-  }  
+  console.log('error =', e)
 }
 ```
 You can learn more about the `try... catch` statement at [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch) but don't worry too much about implementing it now.
@@ -111,13 +145,9 @@ popular form of data which is why we are focusing on this response type in this 
 
 ### Let's take a look at an example of a response object:
 
-1. Open the link below in a new browser window. The url will make an api request
-   to api.giphy.com. You'll see the parsed response object in the browser
-   window:\
-   http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC
-2. Take a look at the data that's displayed in your browser. This is what a
-   response object looks like. Click on some of the links and see what happens.
-3. Take a look at the api url. You don't need to understand it all right away
+- Try running the code in the repl, what does the data look like? Try opening some of the URLs returned inside the data
+- Try `console.log()`ing the `xhr.responseText` before using `JSON.parse()`. This is what it looks like in it's JSON stringified form 
+- Take a look at the api url. You don't need to understand it all right away
    but it's worth having a look at it to see the relationship between the url
    and what's in the response object.
 
