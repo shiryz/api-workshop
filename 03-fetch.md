@@ -16,8 +16,8 @@ In a very simple manner all you really do is call fetch with the URL you want, b
 
 ```js
 fetch(url) // Call the fetch function passing the url of the API as a parameter
-.then(function(data) {
-    // Your code for handling the data you get from the API
+.then(function(response) {
+    // Your code for handling the response you get from the API
 })
 .catch(function(error) {
     // This is where you run code if the server returns any errors
@@ -103,8 +103,8 @@ Let's inspect the `response` object we receive in more depth:
 3. Type/copy the following into the console:
 ```js
 fetch('https://api.github.com/users/chriscoyier/repos')
-  .then(function(data) {
-    console.log(data);
+  .then(function(response) {
+    console.log(response);
   })
   .catch(function(error) {
     console.log(error);
