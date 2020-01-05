@@ -30,15 +30,15 @@ Start by adding [JSONView](https://chrome.google.com/webstore/detail/jsonview/ch
 
 Read each section and be ready to answer questions  
 
-1. [Request and response pattern](https://github.com/shiryz/api-workshop/blob/master/01-request-response.md)  
+1. [Request and response pattern](https://github.com/shiryz/api-workshop/blob/jamie/01-request-response.md)  
 
-2. [HTTP](https://github.com/shiryz/api-workshop/blob/master/02-http.md)  
+2. [HTTP](https://github.com/shiryz/api-workshop/blob/jamie/02-http.md)  
 
-3. [Fetch API](https://github.com/shiryz/api-workshop/blob/master/03-fetch.md)  
+3. [Fetch API](https://github.com/shiryz/api-workshop/blob/jamie/03-fetch.md)  
 
-4. [Asynchronous code](https://github.com/shiryz/api-workshop/blob/master/04-asynchonous.md)  
+4. [Asynchronous code](https://github.com/shiryz/api-workshop/blob/jamie/04-asynchonous.md)  
 
-5. [Fix a broken API request](https://github.com/shiryz/api-workshop/blob/master/api-example)  
+5. [Fix a broken API request](https://github.com/shiryz/api-workshop/blob/jamie/api-example)  
     - You will need to clone the repository and work on the code locally
     - If you have ssh keys for github: `git clone git@github.com:shiryz/api-workshop.git`
     - Otherwise, use:`git clone https://github.com/shiryz/api-workshop.git`
