@@ -43,7 +43,7 @@ Read each section and be ready to answer questions
     - If you have ssh keys for github: `git clone git@github.com:shiryz/api-workshop.git`
     - Otherwise, use:`git clone https://github.com/shiryz/api-workshop.git`
     - Open index.html in the browser and you will see that the API request is not working
-    - Open main.js and look for what's broken or missing in the code. If you're confused, check it line-by-line against the description of fetch in [this file](https://github.com/shiryz/api-workshop/blob/master/03-fetch.md)
+    - Open main.js and look for what's broken or missing in the code. If you're confused, check it line-by-line against the description of fetch in [this file](https://github.com/shiryz/api-workshop/blob/jamie/03-fetch.md)
 
 
 ### Follow up and further learning
