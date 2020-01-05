@@ -6,13 +6,7 @@
 
 ## What is an API?
 
-API stands for **Application Programming Interface**.
-
-For programming in general, it means a set of functions/procedures that allow us to write programmes which access certain data / features.   
-
-For example, when we use `.forEach()` or `.map()` methods on an Array, we are using the **API** of JS Arrays. In this case, we are using the API to loop over & do stuff to the data inside the array. The important thing is we haven't had to create these methods ourselves, they already exist in the JS Arrays API, and they are exposed to us to use in our programmes. All we have to do is use them in the correct way.
-
-For web development, APIs have a special meaning. Imagine you are building an app that shows the weather in your country 🌦You shouldn't have to gather the weather data yourself! Other people have already done that, so you just want to access the data. Someone else has the data on a server, and they want to share it with you (plus other people building apps). To do this, they can build an Web Server API to share the data. All you need to do is request it from their server in the right way. So Web APIs are also procedures to access data/features, but now on a wider scale (eg: between two different computers).
+[Intro Presentation ](https://docs.google.com/presentation/d/1v9icyhUWwxjIJhEF5Opa0qaz1DWWy5wL2emFp4eiq18/edit#slide=id.p1)
 
 (Still confused? Try reading this [Free Code Camp article](https://www.freecodecamp.org/news/what-is-an-api-in-english-please-b880a3214a82/))
 
