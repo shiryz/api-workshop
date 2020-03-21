@@ -28,7 +28,6 @@ Read each section and be ready to answer questions
 
 3. [Fetch API](https://github.com/shiryz/api-workshop/blob/master/03-fetch.md)  
 
-4. [Asynchronous code](https://github.com/shiryz/api-workshop/blob/master/04-asynchonous.md)  
 
 5. [Fix a broken API request](https://github.com/shiryz/api-workshop/blob/master/api-example)  
     - You will need to clone the repository and work on the code locally
