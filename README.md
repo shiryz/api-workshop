@@ -8,7 +8,6 @@ There are a few core concepts you need to understand in making API requests. By 
 - The request-response pattern
 - HTTP methods and status codes
 - The fetch API
-- The meaning of 'asynchronous' in the context of API requests
 
 ### The workshop
 We will be working in pairs this morning, so figure out who you will be working with. The plan is that each pair should actively read and discuss each topic and try to make sure they both understand the material. How you do this is up to you - you may like to take some time to read separately and then discuss the material between you. Remember: Google is your friend.
