@@ -58,7 +58,7 @@ Following is an explanation of each line of code from the example above.
 if no error is thrown, `.catch(..`  won't be called similar to the `try catch` functionality.
 
 *Note* - Don't worry if you don't get how `.then` and `.catch` work yet, we'll go over them in greater detail in later weeks, also however we recommend you to check
-[Promise](https://developer.mozilla.org/en-US/docs/Web/API/Response).
+[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
 
 
