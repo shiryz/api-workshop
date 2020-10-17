@@ -33,19 +33,6 @@ EXAMPLE: Looking at a particular topic on Wikipedia.
 
 EXAMPLE: Submitting a comment on a message board.
 
-#### PUT
-
-* Places some provided data at the exact path specified in the request. Usually used to create a new resource.
-* If something already exists at that path the server will overwrite whatever is there.
-
-Note the distinction between `PUT` and `POST`: with `POST` the path specified in the request will handle the data and the server can put the data where it likes. A `PUT` request is basically a request to update the resource at the specified path with the data provided.
-
-EXAMPLE: Uploading a file to a server.
-
-#### DELETE
-
-An obvious one - used when the client requests the server to delete a resource at the path specified.
-
 ## HTTP status codes
 
 Status codes accompany a server response to indicate whether the request was successful. They are made up of a three-digit number and a human-readable phrase, eg `200 OK` or `404 Not Found`. There are many status codes, and you don't need to memorise them, but it is useful to know the main groups.
