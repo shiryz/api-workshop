@@ -61,7 +61,7 @@ if no error is thrown, `.catch(..`  won't be called similar to the `try catch` f
 [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
 
-
+## Extra
 
 ### Fetch vs. XHR
 Let's compare the two:
