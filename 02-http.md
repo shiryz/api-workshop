@@ -14,11 +14,6 @@ The image below labels the parts of a url. DNS uses the resource name to look up
 
 ![parts of a url image](./url.png)  
 
-### Other transfer protocols
-There are many other communication protocols, including FTP (file transfer protocol), SMTP (Simple Mail Transfer Protocol) and IMAP (Internet Message Access Protocol).   
-
-HTTPS and FTPS are secure versions of HTTP and FTP. They use SSL (Secure Sockets Layer), which encrypts the request and response. There is a close analogy between protocols and programming languages: protocols are to communications what programming languages are to computations.
-
 ## HTTP methods
 #### GET
 
