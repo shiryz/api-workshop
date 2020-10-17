@@ -1,5 +1,5 @@
 ## HTTP: Learning Outcomes
-* Know the different between GET, POST, PUT and DELETE
+* Know the different between GET, POST
 * Understand the anatomy of a url
 * Know what HTTP means
 * Recognise what status codes stand for
